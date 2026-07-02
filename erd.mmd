@@ -1,0 +1,37 @@
+erDiagram
+    users {
+        bigint id PK
+        string name
+        string email
+        timestamp email_verified_at
+        string password
+        string remember_token
+        timestamp created_at
+        timestamp updated_at
+    }
+    employees {
+        bigint id PK
+        string employee_id
+        string name
+        string email
+        string position
+        string department
+        string status
+        date join_date
+        timestamp created_at
+        timestamp updated_at
+    }
+    personal_access_tokens {
+        bigint id PK
+        string tokenable_type
+        bigint tokenable_id FK
+        string name
+        string token
+        text abilities
+        timestamp last_used_at
+        timestamp expires_at
+        timestamp created_at
+        timestamp updated_at
+    }
+    
+    users ||--o{ personal_access_tokens : "tokenable"
